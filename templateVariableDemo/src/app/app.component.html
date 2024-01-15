@@ -1,0 +1,29 @@
+<h1>Angular Template-Driven Form Example</h1>
+
+    <!-- Template-Driven Form -->
+    <form #myForm="ngForm" (ngSubmit)="onSubmit()">
+      <!-- Name Input -->
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name1" ngModel required>
+      </div>
+
+      <!-- Email Input -->
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" ngModel required>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit">Submit</button>
+    </form>
+
+    <!-- Display Form Data -->
+    <div *ngIf="submitted">
+      <h3>Form Submitted Successfully!</h3>
+      <p>Name: {{ formData.name }}</p>
+      <p>Email: {{ formData.email }}</p>
+    </div>
+
+
+    

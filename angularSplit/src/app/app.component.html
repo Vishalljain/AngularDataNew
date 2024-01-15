@@ -1,0 +1,22 @@
+<div style="height: 500px; background: yellow;">
+  <!-- Your existing content -->
+  <div style="height: calc(100% - 10px); overflow: hidden;">
+    <!-- Your text fields or content here -->
+    <as-split direction="vertical" [gutterSize]="10">
+      <as-split-area [size]="70">
+        <!-- Left side content -->
+        <div>
+          <input type="text" placeholder="Textbox 1">
+          <input type="text" placeholder="Textbox 2">
+          <!-- Add more text fields as needed -->
+        </div>
+      </as-split-area>
+      <as-split-area [size]="30">
+        <!-- Right side content (will be the resizable area) -->
+        <div style="height: 100%; overflow: auto;">
+          <!-- Content in the resizable area -->
+        </div>
+      </as-split-area>
+    </as-split>
+  </div>
+</div>

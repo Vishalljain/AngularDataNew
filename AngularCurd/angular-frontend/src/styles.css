@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+/*@import "~bootstrap/dist/css/bootstrap.css";*/
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background-color: blue;
+  text-align: center;
+  color: white;
+}
+.scroll-container {
+  height: 300px; /* or whatever height you want the container to be */
+  overflow-y: scroll; /* adds a vertical scrollbar */
+  overflow-x: scroll; /*adds a horizontal scrollbar */
+}

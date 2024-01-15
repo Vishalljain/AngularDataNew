@@ -1,0 +1,42 @@
+<div class="col-md-6 offset-md-3">
+  <h3> Create Employee </h3>
+  <form (ngSubmit)="onSubmit(employeeForm)" #employeeForm="ngForm">
+
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input type="text" class="form-control" id="firstName"
+             [(ngModel)]="employee.firstName" name="firstName" required>
+      <div *ngIf="employeeForm.controls['firstName'].invalid && employeeForm.controls['firstName'].touched"
+           class="text-danger">First Name is required.</div>
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input type="text" class="form-control" id="lastName"
+             [(ngModel)]="employee.lastName" name="lastName" required>
+      <div *ngIf="employeeForm.controls['lastName'].invalid && employeeForm.controls['lastName'].touched"
+           class="text-danger">Last Name is required.</div>
+    </div>
+
+    <div class="form-group">
+      <label for="emailId">Email Id</label>
+      <input type="email" class="form-control" id="emailId"
+             [(ngModel)]="employee.emailId" name="emailId" required email>
+      <div *ngIf="employeeForm.controls['emailId'].invalid && employeeForm.controls['emailId'].touched"
+           class="text-danger">
+        Email is required
+
+      </div>
+    </div>
+
+    <button class="btn btn-success" type="submit" [disabled]="employeeForm.invalid">Submit</button>
+
+  </form>
+</div>
+
+
+
+<!--
+
+employeeForm.controls.firstName.invalid   ORRRR  employeeForm.controls['firstName'].invalid
+-->

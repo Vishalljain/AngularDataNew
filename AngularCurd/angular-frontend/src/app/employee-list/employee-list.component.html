@@ -1,0 +1,33 @@
+<div  class="scroll-container">
+  <h2>Employee List</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email Id</th>
+        <!--<th>Action</th>-->
+
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees" (click)="onRowClick(employee)">
+        <td>{{employee.firstName}}</td>
+        <td>{{employee.lastName}}</td>
+        <td>{{employee.emailId}}</td>
+        <td>
+          <div class="button-container">
+            <button (click)="updateEmployee(employee.id)" class="btn btn-info" style="margin-right: 10px;margin-left:10px">Update Employee</button>
+            <button [disabled]="isButtonDisabled()" (click)="delete()" class="btn btn-info" style="margin-right: 10px;">Delete Employee</button>
+
+            <button (click)="viewEmployee(employee.id)" class="btn btn-info">View Employee</button>
+          </div>
+        </td>
+
+
+      </tr>
+    </tbody>
+
+  </table>
+</div>

@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\angular-frontend",
+    "\\angular-frontend\\src",
+    "\\angular-frontend\\src\\app",
+    "\\angular-frontend\\src\\app\\create-employee",
+    "\\angular-frontend\\src\\app\\employee-list",
+    "\\angular-frontend\\src\\app\\update-employee"
+  ],
+  "SelectedNode": "\\angular-frontend\\src\\app\\employee.service.ts",
+  "PreviewInSolutionExplorer": false
+}
