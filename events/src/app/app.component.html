@@ -1,0 +1,11 @@
+<h1>Angular Event Handling Example</h1>
+
+    <!-- Button without passing $event -->
+    <button type="button" (click)="deleteHero()">Delete hero (Without $event)</button>
+
+    <!-- Button with passing $event -->
+    <button type="button" (click)="deleteHeroWithEvent($event)">Delete hero (With $event)</button>
+
+    <div *ngIf="clickCoordinates">
+      <p>Mouse Click Coordinates: {{ clickCoordinates.x }}, {{ clickCoordinates.y }}</p>
+    </div>

@@ -1,0 +1,100 @@
+<div class="container-fluid">
+  <h1>BootCamp Enrollment Form</h1>
+  <div class="alert alert-danger" *ngIf="errorMsg">
+    {{errorMsg}}
+  </div>
+  <form #userForm="ngForm" *ngIf="!submitted"(ngSubmit)="onSubmit(userForm)" novalidate><!--noValidate added to stop validation from browser side-->
+    <!--form #refernceVariable="ngForm" ngForm gives us access to the formContrls-->
+    {{userForm.value | json}}
+    <hr />
+    {{userobj|json}}
+
+    <!--[class.is-invalid] is a css class which will be applied when the name1.invalid-->
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" required #name1="ngModel" [class.is-invalid]="name1.invalid" class="form-control" name="userName" [(ngModel)]="userobj.name" />
+      <small class="text-danger" [class.d-none]="name1.valid || name1.untouched">Name is small</small>
+      <!--do no show the error we use this css [class.d-none] class when is name1 is valid or untouched or we can use simply ngIf instaed of css see phone filed validation-->
+    </div>
+    {{name1.invalid}}
+    {{name1.untouched}}
+  {{name1.valid}}
+
+
+    <br />
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" class="form-control" name="userEmail" [(ngModel)]="userobj.email" />
+    </div>
+    <br />
+    <div class="form-group">
+      <label>Phone</label>
+      <input type="tel" #phone="ngModel" pattern="^\d{10}$" [class.is-invalid]="phone.invalid && phone.touched" class="form-control" name="userPhone" [(ngModel)]="userobj.phone" />
+      <!-- <small class="text-danger" [class.d-none]="phone.valid || phone.untouched"></small>-->
+      <div *ngIf="phone.errors && (phone.invalid || phone.untouched)">
+        <small class="text-danger" *ngIf="phone.errors['required']">Phone number is required</small>
+        <small class="text-danger" *ngIf="phone.errors['pattern']">Phone number must be 10 digit</small>
+      </div>
+    </div>
+    {{phone.invalid}}
+    {{phone.untouched}}
+    {{phone.touched}}
+    <br />
+    <div class="form-group">
+      <select #topic="ngModel" (blur)="validateTopic(topic.value)" (change)="validateTopic(topic.value)" [class.is-invalid]="topicHasError && topic.touched"
+              class="custom-select" name="topic" [(ngModel)]="userobj.topic">
+        <option value="default">I am intersted in</option>
+        <option *ngFor="let topic of topics">{{topic}}</option>
+      </select>
+      <small class="text-danger" [class.d-none]="!topicHasError || topic.untouched">Please select a value from dropdown</small>
+    </div>
+    {{topic.touched}}{{topicHasError}}
+    <br />
+    <div class="mb-3">
+      <label>Time preference</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" [(ngModel)]="userobj.timePrefernce" value="morning">
+        <label class="form-check-label">Morning (9AM-12PM)</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" [(ngModel)]="userobj.timePrefernce" value="evening">
+        <label class="form-check-label">Evening (5PM-8PM)</label>
+      </div>
+    </div>
+    <br />
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" name="subscribe" [(ngModel)]="userobj.subscribe">
+      <label class="form-check-label">Check me out</label>
+    </div>
+    <!--
+      <div ngModelGroup="address">
+        <div class="form-group">
+          <label>Street</label>
+          <input type="text" class="form-control" name="street" ngModel>
+        </div>
+        <div class="form-group">
+          <label>City</label>
+          <input type="text" class="form-control" name="city" ngModel>
+        </div>
+        <div class="form-group">
+          <label>State</label>
+          <input type="text" class="form-control" name="state" ngModel>
+        </div>
+        <div class="form-group">
+          <label>Postal Code</label>
+          <input type="text" class="form-control" name="postalCode" ngModel>
+        </div>
+      </div>
+  -->
+    {{userForm.form.invalid}}
+    <button [disabled]="userForm.form.invalid || topicHasError" class="btn btn-primary" type="submit">Submit form</button>
+
+  </form>
+</div>
+
+
+
+<!--Value attribute: The value attribute is used to define the value that will be sent to the server or used in the client-side code when the radio button is selected. When the form is submitted, the selected radio button's value will be included in the form data. In this case, the value "morning" will be associated with the radio button when it is selected.
+
+Name attribute: The name attribute is used to group related radio buttons together. When multiple radio buttons share the same name attribute, they belong to the same group, and only one radio button within the group can be selected at a time. This allows users to choose only one option from a set of mutually exclusive choices. In this case, the name attribute is set to "timePreference", indicating that all radio buttons with the same name belong to the "timePreference" group.-->
+<!--we need to have name attribute as ngModel(ngModel name="timePrefernce") will bind data to the name attribute If ngModel is used within a form tag, either the name attribute must be set or the form control must be defined as 'standalone' in ngModelOptions -->

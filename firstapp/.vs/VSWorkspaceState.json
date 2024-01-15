@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\customer",
+    "\\src\\app\\customer\\add-customer",
+    "\\src\\app\\customer\\edit-customers",
+    "\\src\\app\\loans-types",
+    "\\src\\app\\services",
+    "\\src\\app\\settings",
+    "\\src\\assets"
+  ],
+  "SelectedNode": "\\src\\app\\customer\\add-customer\\add-customer.component.html",
+  "PreviewInSolutionExplorer": false
+}

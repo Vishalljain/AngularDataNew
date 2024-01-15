@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div *ngIf="selectedUser">Selected User:{{selectedUser.name}}</div>
+      <div class="row">
+        <!--
+  <div class="col-md-3" *ngFor="let user of users">
+    <div class="box my-3 px-4">
+      <div>Id:{{user.id}}</div>
+      <div>Name:{{user.name}}</div>
+      <div>Address:{{user.address}}</div>
+      <div>Name:{{user.occupation}}</div>
+    </div>
+  </div>
+    -->
+       <app-user *ngFor="let user0 of users11; trackBy:trackUser"
+                 [user11]="user0" (userSelectedMadu)="onUserSelectThen($event)"></app-user>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<h1>Add Customer works</h1>
+<form #addCustomerForm="ngForm" (submit)="addCustomer(addCustomerForm)">
+  <input type="text" [(ngModel)]="firstName" name="firstName" required minlength="10">
+  <br />
+  <input type="checkbox" [(ngModel)]="terms" name="terms" required>Terms and conditions
+  <br />
+  <select [(ngModel)]="customerType" name="customerType" required>
+    <option>Premium</option>
+    <option>Normal</option>
+  </select>
+  <button type="submit" [disabled]="!addCustomerForm.valid">Add Customer</button>
+  <button class="btn btn-link" (click)="restForm(addCustomerForm)"> ResetForm</button>
+  <button class="btn btn-link" (click)="loadValue(addCustomerForm)">SetFormValues</button>
+</form>
+
+
+<div>{{firstName}}</div>
+ 

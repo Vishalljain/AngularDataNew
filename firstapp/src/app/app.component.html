@@ -1,0 +1,132 @@
+<h1 class="text-center">{{title}}</h1>
+
+<div *ngIf="success_msg; else error_msg">user added successfully</div>
+<ng-template #error_msg>user was not added</ng-template>
+
+<h2>Learning ngFor</h2>
+<ul>
+  <li *ngFor="let contact of contacts;index as i;first as f;last as l">
+    <div *ngIf="f" style="background-color:aquamarine">this is the first record</div>
+    <div>
+      {{i}} {{contact.firstName}} {{contact.lastName}}
+    </div>
+    <div *ngIf="l" style="background-color: aqua">this is the last record</div>
+
+  </li>
+
+</ul>
+
+<ul>
+  <li *ngFor="let contact of contacts;index as i;odd as o;even as e">
+    <div *ngIf="o" style="background-color:aquamarine"> {{i}} {{contact.firstName}} {{contact.lastName}}</div>
+    <div *ngIf="e" style="background-color: aqua "> {{i}} {{contact.firstName}} {{contact.lastName}}</div>
+
+  </li>
+
+</ul>
+
+
+<h2>Learning [ngSwitch]</h2>
+<div [ngSwitch]=superPower>
+  <div *ngSwitchCase="'WonderWoman'">Display WW</div>
+  <div *ngSwitchCase="'SpiderMan'">Display SM</div>
+  <div *ngSwitchDefault>Default Value</div>
+</div>
+
+<div [ngSwitch]=tax>
+  <div *ngSwitchCase="10">Display 10</div>
+  <div *ngSwitchCase="20">Display 20</div>
+  <div *ngSwitchDefault>Default 100</div>
+</div>
+
+<h2>Learning [[ngStyle]]</h2>
+
+<div [ngStyle]="{'background-color':'green','color':'#fff'}">This is div tag</div>
+<div [ngStyle]="{'background-color':styleProp}">This is dynamically coming tag from appcomponent.ts</div>
+<div [ngStyle]="{'color':txtColor==='blue'?'blue':'green'}">This is div tag</div>
+
+
+<div [ngClass]="'c1'">This is ngClass Example</div>
+
+<div [ngClass]="'c1 c2'">This is ngClass Example</div>
+
+<div [ngClass]="styleCsProp">This is ngClass dynamic Example</div>
+<h2>Ex for interpolation</h2>
+<table>
+  <tr>
+    <th>ContactId</th>
+    <th>FirstName</th>
+    <th>LastName</th>
+  </tr>
+  <tr *ngFor="let contact of contacts">
+    <td>{{contact.ContatctId}}</td>
+    <td>{{contact.firstName}}</td>
+    <td>{{contact.lastName}}</td>
+  </tr>
+</table>
+
+<h3>Attribute Binding Example</h3>
+
+<h3>Why to use Attr Example</h3>
+
+<table>
+  <tr>
+    <td>Contact Id</td>
+    <td>Contact FirstName</td>
+    <td>Contact LastName</td>
+  </tr>
+  <tr>
+    <td colspan="2">Contact Id</td>
+    <td>Contact LastName</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td>Contact Id</td>
+    <td>Contact FirstName</td>
+    <td>Contact LastName</td>
+  </tr>
+  <tr>
+    <td [attr.colspan]="colVal">Contact Id cannot use Propert binding[colSpan]</td>
+    <td>Contact LastName</td>
+  </tr>
+</table>
+
+
+<div>{{jkl}}</div>
+
+<h1>Event binding</h1>
+
+<button (click)="sayHello()">Click me</button>
+
+<div (mouseover)="highlightBgColor(1,2,3,4,5)">Higliht me</div>
+
+
+<h1>2 way Binding</h1>
+<input [(ngModel)]="userName" />
+<div>{{userName}}</div>
+
+<input [(ngModel)]="name">
+<p>{{name}}</p>
+
+<h1>Built In Pipes</h1>
+
+<div>{{lowerCaseEx|lowercase}}</div>
+<div>{{jsonCaseEx|json}}</div>
+<div>{{currencyEx | currency}}</div>
+<div>{{dateEx | date}}</div>
+
+<h1>Parametrized Pipes</h1>
+<div>{{currencyEx | currency:'INR'}}</div>
+<div>{{dateEx | date:'short'}}</div>
+<div>{{dateEx | date:'long'}}</div>
+<div>{{dateEx | date:'MM-dd-yy'}}</div>
+
+<h1>Chaining Pipes</h1>
+<div>{{dateEx | date | uppercase}}</div>
+
+<router-outlet name="addLoan"></router-outlet>
+<!--http://localhost:4200/loans(addLoan:loan-types)-->
+
+<router-outlet></router-outlet>

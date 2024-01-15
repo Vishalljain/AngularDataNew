@@ -1,0 +1,16 @@
+<p>clients works!</p>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>FirstName</th>
+    <th>LastName</th>
+  </tr>
+  <tr *ngFor="let client of clientLists">
+    <td>{{client.clientId}}</td>
+    <td>{{client.firstName}}</td>
+    <td>{{client.lastName}}</td>
+    <!--Only first will have slash if u dont put / in front of edit it will be http://localhost:4200/clients/edit/10-->
+    <!-- <td><a [routerLink]="'/edit'">Edit</a> |<a [routerLink]="'/delete'">Delete</a> </td> this is static as link for edit is http://localhost:4200/edit -->
+    <td><a [routerLink]="['/edit',client.clientId]">Edit</a> |<a [routerLink]="['/delete',client.clientId,'edit']">Delete</a><!-->This is dynamic hover on the link it will show different id http://localhost:4200/delete/10</!-->
+  </tr>
+</table>

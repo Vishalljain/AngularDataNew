@@ -1,0 +1,39 @@
+<p>loans-types works!</p>
+<!--
+<form [formGroup]="addLoanTypeForm">
+  <div class="form-Group">
+    <label>Loan Name</label>
+    <input type="text" formControlName="loanName" />
+    <div class="text-danger" *ngIf="addLoanTypeForm.controls['loanName'].errors?.['required'] && addLoanTypeForm.controls['loanName'].touched">FirstName is Required</div>
+    <div class="text-danger" *ngIf="addLoanTypeForm.controls['loanName'].errors?.['minlength'] && addLoanTypeForm.controls['loanName'].touched">Leghth 10 is Required</div>
+  </div>
+  <div class="form-Group">
+    <label>Loan Description</label>
+    <textarea formControlName="loanDescription"></textarea>
+  </div>
+  <div class="form-Group">
+    <label>Loan Type</label>
+    <input type="text" formControlName="loanType" />
+  </div>
+  <div class="form-Group" formArrayName="users">
+    <label>Users</label>
+    <div *ngFor="let frmCtrl of FrmArr.controls; let i = index">
+      <input type="text" [formControlName]="i" />
+    </div>
+  </div>
+
+  <div formArrayName="users11" *ngFor="let user of users11.controls; let i = index">
+    <div [formGroupName]="i">
+      <input type="text" formControlName="name" />
+      <input type="text" formControlName="age" />
+    </div>
+  </div>
+
+
+
+
+
+  <button (click)="addLoanType()" [disabled]="!addLoanTypeForm.valid">AddLoan</button>
+  <button (click)="resetForm()">Reset Form</button>
+</form>
+  -->

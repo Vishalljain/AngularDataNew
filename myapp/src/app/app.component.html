@@ -1,0 +1,4 @@
+<input [(ngModel)]="userInput" (input)="filterItems()" placeholder="Type to filter">
+    <select [(ngModel)]="selectedItem">
+      <option *ngFor="let item of filteredItems" [value]="item">{{ item }}</option>
+    </select>

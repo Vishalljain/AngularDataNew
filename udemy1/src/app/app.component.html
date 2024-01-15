@@ -1,0 +1,36 @@
+<!-- src/app/person-form/person-form.component.html -->
+
+<!-- person-list.component.html -->
+
+<div *ngIf="showPersons">
+  <ul>
+    <li *ngFor="let person of persons">
+      {{ person.name }} - {{ person.age }}
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="showPersons">
+  {{singlePerson.name}} - {{singlePerson.age}}
+</div>
+
+<div>
+  <h2>Add New Person</h2>
+  <form (submit)="savePerson()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="person.name" required>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" [(ngModel)]="person.age" required>
+
+    <button type="submit">Save</button>
+  </form>
+</div>
+
+
+
+<button (click)="loadPersons()" [disabled]="loadingPersons || showPersons">Load Persons</button>
+
+<button (click)="loadSinglePerson()" [disabled]="loadingPersons || showPersons">Load Single Persons</button>
+
+
